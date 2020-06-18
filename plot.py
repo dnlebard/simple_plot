@@ -7,7 +7,6 @@ import os
 def simple_plot(x_col, *y_cols, **kwargs):
     """
     """
-    
     # modify the axis labels if necessary
     if 'x_label' in kwargs:
         plt.xlabel(kwargs['x_label'], fontsize=16)
@@ -24,26 +23,11 @@ def simple_plot(x_col, *y_cols, **kwargs):
     ymin_orig, ymax_orig = axes.get_ylim()
     xmin_orig, xmax_orig = axes.get_xlim()
                 
-    if 'x_min' in kwargs:
-        x_min = float(kwargs['x_min'])
-    else:
-        x_min = xmin_orig
-    
-    if 'x_max' in kwargs:
-        x_max = float(kwargs['x_max'])
-    else:
-        x_max = xmax_orig
-
-    if 'y_min' in kwargs:
-        y_min = float(kwargs['y_min'])
-    else:
-        y_min = ymin_orig
-    
-    if 'y_max' in kwargs:
-        y_max = float(kwargs['y_max'])
-    else:
-        y_max = ymax_orig
-        
+    x_min = float(kwargs['x_min']) if 'x_min' in kwargs else xmin_orig
+    x_max = float(kwargs['x_max']) if 'x_max' in kwargs else xmax_orig
+    y_min = float(kwargs['y_min']) if 'y_min' in kwargs else ymin_orig
+    y_max = float(kwargs['y_max']) if 'y_max' in kwargs else ymax_orig
+ 
     axes.set_xlim([x_min,x_max])
     axes.set_ylim([y_min,y_max])
         
